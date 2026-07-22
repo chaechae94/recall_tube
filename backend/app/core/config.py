@@ -9,6 +9,9 @@ class Settings(BaseSettings):
     jwt_algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
     upload_dir: str = "uploads"
+    whisper_model_size: str = "base"
+    # 시스템 PATH에 ffmpeg이 없을 때만 사용. 비어있으면 PATH의 ffmpeg을 그대로 사용.
+    ffmpeg_dir: str = ""
 
     class Config:
         env_file = ".env"
