@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from sqlalchemy import text
 
 from api.auth import router as auth_router
 from api.health import router as health_router
@@ -11,6 +12,10 @@ from models import scene as _scene  # noqa: F401
 from models import transcript_segment as _transcript_segment  # noqa: F401
 from models import user as _user  # noqa: F401  ensure model is registered on Base
 from models import video as _video  # noqa: F401  ensure model is registered on Base
+
+with engine.connect() as conn:
+    conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
+    conn.commit()
 
 Base.metadata.create_all(bind=engine)
 
