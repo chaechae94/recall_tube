@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     jwt_secret_key: str = "dev-only-secret-change-me"
     jwt_algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
+    upload_dir: str = "uploads"
 
     class Config:
         env_file = ".env"
