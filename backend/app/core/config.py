@@ -4,6 +4,10 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     app_name: str = "AI Memory Search API"
     database_url: str = "postgresql+psycopg://recalltube:recalltube@localhost:5432/recalltube"
+    # 개발용 기본값. 배포 전 반드시 .env의 JWT_SECRET_KEY를 임의의 긴 값으로 교체할 것.
+    jwt_secret_key: str = "dev-only-secret-change-me"
+    jwt_algorithm: str = "HS256"
+    access_token_expire_minutes: int = 30
 
     class Config:
         env_file = ".env"
