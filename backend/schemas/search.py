@@ -15,6 +15,7 @@ class SearchResultRead(BaseModel):
     speech_text: str
     ocr_text: str
     score: float
+    reason: str = ""
 
 
 class SearchResponse(BaseModel):
