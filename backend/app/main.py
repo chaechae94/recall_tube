@@ -5,6 +5,7 @@ from api.health import router as health_router
 from api.videos import router as videos_router
 from app.core.config import settings
 from db.session import Base, engine
+from models import memory_chunk as _memory_chunk  # noqa: F401
 from models import ocr_result as _ocr_result  # noqa: F401
 from models import scene as _scene  # noqa: F401
 from models import transcript_segment as _transcript_segment  # noqa: F401
