@@ -1,3 +1,5 @@
+# paddleocr's imgaug dependency uses numpy APIs removed in 2.0 (np.sctypes) - pin 1.x
+numpy==1.26.4
 fastapi==0.115.0
 uvicorn[standard]==0.30.6
 pydantic-settings==2.5.2
@@ -8,3 +10,5 @@ email-validator==2.2.0
 pyjwt==2.9.0
 python-multipart==0.0.9
 openai-whisper==20250625
+paddlepaddle==2.6.2
+paddleocr==2.7.3

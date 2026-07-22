@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     whisper_model_size: str = "base"
     # 시스템 PATH에 ffmpeg이 없을 때만 사용. 비어있으면 PATH의 ffmpeg을 그대로 사용.
     ffmpeg_dir: str = ""
+    ocr_frame_interval_seconds: float = 2.0
 
     class Config:
         env_file = ".env"
