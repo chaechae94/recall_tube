@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 
 from ai.embedding import embed_texts
 from ai.query_expansion import expand_query
+from ai.reranker import rerank_with_reasons
 from models.memory_chunk import MemoryChunk
 from models.user import User
 from models.video import Video
@@ -37,4 +38,5 @@ def search_memory(
         }
         for chunk, video, dist in rows
     ]
+    results = rerank_with_reasons(query, results)
     return search_text, results
