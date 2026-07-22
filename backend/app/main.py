@@ -3,6 +3,7 @@ from sqlalchemy import text
 
 from api.auth import router as auth_router
 from api.health import router as health_router
+from api.search import router as search_router
 from api.videos import router as videos_router
 from app.core.config import settings
 from db.session import Base, engine
@@ -24,3 +25,4 @@ app = FastAPI(title=settings.app_name)
 app.include_router(health_router)
 app.include_router(auth_router)
 app.include_router(videos_router)
+app.include_router(search_router)
