@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     ocr_frame_interval_seconds: float = 2.0
     # 유료 API. 비어있으면 Query Expansion은 원래 검색어를 그대로 통과시킴.
     anthropic_api_key: str = ""
+    frontend_origin: str = "http://localhost:3000"
 
     class Config:
         env_file = ".env"
