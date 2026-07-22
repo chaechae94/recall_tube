@@ -30,6 +30,7 @@ services:
     volumes:
       - backend_uploads:/app/uploads
       - whisper_cache:/root/.cache/whisper
+      - hf_cache:/root/.cache/huggingface
     depends_on:
       db:
         condition: service_healthy
@@ -38,3 +39,4 @@ volumes:
   db_data:
   backend_uploads:
   whisper_cache:
+  hf_cache:
