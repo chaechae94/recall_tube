@@ -4,6 +4,7 @@ from pydantic import BaseModel
 class SearchRequest(BaseModel):
     query: str
     limit: int = 10
+    use_expansion: bool = True
 
 
 class SearchResultRead(BaseModel):
@@ -14,3 +15,8 @@ class SearchResultRead(BaseModel):
     speech_text: str
     ocr_text: str
     score: float
+
+
+class SearchResponse(BaseModel):
+    expanded_query: str
+    results: list[SearchResultRead]

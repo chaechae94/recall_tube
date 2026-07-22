@@ -13,6 +13,8 @@ class Settings(BaseSettings):
     # 시스템 PATH에 ffmpeg이 없을 때만 사용. 비어있으면 PATH의 ffmpeg을 그대로 사용.
     ffmpeg_dir: str = ""
     ocr_frame_interval_seconds: float = 2.0
+    # 유료 API. 비어있으면 Query Expansion은 원래 검색어를 그대로 통과시킴.
+    anthropic_api_key: str = ""
 
     class Config:
         env_file = ".env"
