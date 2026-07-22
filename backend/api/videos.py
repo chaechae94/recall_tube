@@ -4,8 +4,10 @@ from sqlalchemy.orm import Session
 from app.core.deps import get_current_user
 from db.session import get_db
 from models.user import User
+from schemas.ocr import OcrResultRead
 from schemas.transcript import TranscriptSegmentRead
 from schemas.video import VideoRead
+from services.ocr_service import get_ocr_results, run_ocr
 from services.transcription_service import get_transcript, transcribe_video
 from services.video_service import list_videos, save_video
 
@@ -45,3 +47,21 @@ def read_transcript(
     current_user: User = Depends(get_current_user),
 ):
     return get_transcript(db, current_user, video_id)
+
+
+@router.post("/{video_id}/ocr", response_model=list[OcrResultRead])
+def ocr(
+    video_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    return run_ocr(db, current_user, video_id)
+
+
+@router.get("/{video_id}/ocr", response_model=list[OcrResultRead])
+def read_ocr(
+    video_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    return get_ocr_results(db, current_user, video_id)

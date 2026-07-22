@@ -5,6 +5,7 @@ from api.health import router as health_router
 from api.videos import router as videos_router
 from app.core.config import settings
 from db.session import Base, engine
+from models import ocr_result as _ocr_result  # noqa: F401
 from models import transcript_segment as _transcript_segment  # noqa: F401
 from models import user as _user  # noqa: F401  ensure model is registered on Base
 from models import video as _video  # noqa: F401  ensure model is registered on Base
